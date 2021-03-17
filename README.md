@@ -16,9 +16,9 @@ alias gsa='git stash apply'
 alias gpl='git pull'
 alias gma='git merge --abort'
 function gm() {
-    echo "arg1=${1}"
-    echo "arg2=${2}"
-    git merge $1 `if [[ $2 == "c" ]]; then echo "--strategy-option theirs"; fi` `if [[ $2 == "i" ]]; then echo "--strategy-option ours"; fi`;
+        # "i" - accept incoming change
+        # "c" - accept current change
+        git merge $1 `if [[ $2 == "i" ]]; then echo "--strategy-option theirs"; fi` `if [[ $2 == "c" ]]; then echo "--strategy-option ours"; fi`;
 }
 alias gt='git tag'
 alias gtd='git tag --delete'
