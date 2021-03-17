@@ -1,9 +1,9 @@
-# handy_bash_alias
-## simple repository with some very helpful commonly used commands as alias or a function
+
+#### simple repository with some very helpful commonly used commands as alias or a function
 
 
-
-# git commands
+## git commands
+```shell
 alias gc='git checkout'
 alias gcd='git checkout develop'
 alias gcb='git checkout -b'
@@ -26,7 +26,6 @@ alias gbc='git branch | grep "*"'
 function gpo() {
 	git push origin $(gbc | awk '{print $2}')
 }
-alias gcm='git commit'
 alias gb='git branch | grep'
 alias gfo='git fetch origin'
 alias gfc='git fetch && git checkout'
@@ -39,9 +38,14 @@ function glog() {
 	num=${1:-1}
 	git log -$num
 }
+function gcm() {
+        msg="-m \"$1\""
+        git commit `if [[ "abc$1" != "abc" ]]; then echo "$msg"; fi`
+}
+```
 
-
-# docker commands
+## docker commands
+```shell
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dpl='docker pull'
@@ -49,10 +53,13 @@ alias dps='docker ps'
 alias dexec='docker exec -it'
 alias dsp='docker system prune'
 alias dlogin='docker login -u AWS -p `aws ecr get-login-password --region us-east-2` https://333567660568.dkr.ecr.us-east-2.amazonaws.com'
+```
 
-# yarn
+## yarn
+```shell
 alias yi='yarn install'
 alias ys='yarn serve'
 alias ysp='yarn serve --mode production'
 alias yhl='yarn hlint'
 alias yd='yarn dockerize'
+```
