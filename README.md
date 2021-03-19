@@ -4,6 +4,11 @@
 
 ## git commands
 ```shell
+alias ga='git add'
+alias gsu='git status -uno'
+function gall() {
+	git add $(gsu | awk '/modified:/ {print $2}')
+}
 alias gc='git checkout'
 alias gcd='git checkout develop'
 alias gcb='git checkout -b'
@@ -30,9 +35,9 @@ alias gb='git branch | grep'
 alias gfo='git fetch origin'
 alias gfc='git fetch && git checkout'
 alias gcp='git cherry-pick -n'
-alias gsu='git status -uno'
 function gbl() {
-	git branch --sort=-committerdate | tail -r | tail -$1
+        record=${1:-5}
+        git branch --sort=-committerdate | tail -r | tail -$record
 }
 function glog() {
 	num=${1:-1}
