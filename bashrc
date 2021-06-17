@@ -52,6 +52,7 @@ function gcm() {
 	msg="-m \"$1\""
 	git commit  `if [[ "abc$1" != "abc" ]]; then echo "$msg"; fi`
 }
+alias gcc='git commit -c ORIG_HEAD'
 
 
 # docker commands
