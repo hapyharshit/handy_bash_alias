@@ -1,13 +1,17 @@
 
 ### Simple repository with list of commonly used developer friendly commands, help reduce time and increase productivity.
-
+  
 List of commonly used developer friendly commands, save the file in your default user directory and these commands would be available in all the instances of the terminal.
 
 #### linux
-save the `bashrc` file as **.bashrc** in your default user directory `echo ~` or simply use command `source bashrc` locally.
+save the `bashrc` file as `.bashrc` in your default user directory `echo ~`  
+or  
+simply use command `source bashrc` locally.  
 
 #### mac
-save the `bash_profile` file as **.bash_profile** in your default user directory `echo ~` or simply use command `source bash_profile` locally.
+save the `bash_profile` file as `.bash_profile` in your default user directory `echo ~`  
+or  
+simply use command `source bash_profile` locally.  
 
 ## git commands
 ```shell
@@ -64,6 +68,7 @@ function gcm() {
 	msg="-m \"$1\""
 	git commit  `if [[ "abc$1" != "abc" ]]; then echo "$msg"; fi`
 }
+alias gcc='git commit -c ORIG_HEAD'
 ```
 
 ## docker commands
