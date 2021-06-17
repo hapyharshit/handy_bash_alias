@@ -1,6 +1,6 @@
 
 #### simple repository with some very helpful commonly used commands as alias or a function
-###usage
+### usage
 simply use command `source bashrc` 
 
 ## git commands
