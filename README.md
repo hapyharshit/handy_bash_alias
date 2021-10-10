@@ -32,7 +32,10 @@ function gsp() {
 	snum=${1:-0}
 	git stash pop "stash@{`echo $snum`}"
 }
-alias gsa='git stash apply'
+function gsa() {
+	snum=${1:-0}
+	git stash apply "stash@{`echo $snum`}"
+}
 alias gpl='git pull'
 alias gma='git merge --abort'
 function gm() {
@@ -69,6 +72,14 @@ function gcm() {
 	git commit  `if [[ "abc$1" != "abc" ]]; then echo "$msg"; fi`
 }
 alias gcc='git commit -c ORIG_HEAD'
+function gdr() {
+	nb=${2:-cherry-pick_from_develop}
+	gcd && gpl && gc release/2.0 && gpl && gcb $nb && gcp $1
+}
+function grd() {
+	nb=${2:-cherry-pick_from_release}
+	gc release/2.0 && gpl && gcd && gpl && gcb $nb && gcp $1
+}
 ```
 
 ## docker commands
