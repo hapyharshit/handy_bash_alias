@@ -20,7 +20,7 @@ function gsa() {
 	snum=${1:-0}
 	git stash apply "stash@{`echo $snum`}"
 }
-alias gpl='git pull'
+alias gpl='git pull && git remote prune origin'
 alias gma='git merge --abort'
 function gm() {
 	# "i" - accept incoming change
@@ -29,6 +29,7 @@ function gm() {
 }
 alias gt='git tag'
 alias gtd='git tag --delete'
+alias gbd='git branch -D'
 alias gbc='git branch | grep "*"'
 function gpo() {
 	force=${1:-no}
@@ -71,7 +72,9 @@ alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dpl='docker pull'
 alias dps='docker ps'
+alias dpsg='docker ps | grep'
 alias dexec='docker exec -it'
+alias dlogs='docker logs -f'
 alias dsp='docker system prune'
 
 # yarn
@@ -79,5 +82,6 @@ alias yi='yarn install'
 alias ys='yarn serve'
 alias ysp='yarn serve --mode production'
 alias yhl='yarn hlint'
+alias yfl='yarn fixlint'
 alias yd='yarn dockerize'
 alias yb='yarn build'
